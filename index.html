@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>TRIAGE RESULTS</title>
+    <style>
+        body {
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+        }
+        h2 {
+            text-align: center;
+        }
+        table{
+            border: 1px solid black;
+            width: 80%;
+        }
+        th {
+            border: 1px solid black;
+            background-color:aqua;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+            font-weight: 800
+        }
+        /* Row Coloring */
+        #heading {
+            background-color: orange !important;               
+            
+        }
+        #fail {
+            background-color: firebrick !important;               
+        }
+
+        li {
+            font-weight: 400
+        }
+
+        #success {
+            background-color: green;          
+        }  
+    </style>
+</head>
+
+<body>
+    <h2>Triage results for build number: {{ buildNumber }}</h2>
+    <table align='center'>
+        <tr>
+            <th>TEST NAME</th><th>RESULT</th><th>ERRORS</th>
+        </tr>
+        {% for key, values in contents.iteritems() %}
+            {% if values|length == 0 %}
+                <tr id='success'>
+                    <td>{{ key }}</td><td> SUCCESS</td><td> N/A </td>
+                </tr>
+            {% else %}
+                <tr id='fail'>
+                    <td>{{ key }}</td><td> FAIL</td>
+                    <td>
+                    {% for value in values %}
+                        <li>{{ value }}</li>
+                    {% endfor %}
+                </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+</body>
+
+</html>

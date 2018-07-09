@@ -1,0 +1,34 @@
+<!--
+{% extends 'base.html' %} {% block content %}
+<ul>
+    {% for content in contents %}
+    <li>
+        <a href="{{ content }}">{{ content }}</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
+-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Directory listing for /{{ name }}</title>
+</head>
+
+<body>
+    <h2>Blah ....</h2>
+    <hr>
+        {% for content in contents %}
+            <li>
+                {{ content }}
+            </li>
+        {% endfor %}
+        {% for content in contents %}
+            <li>{{content}}</li>
+        {% endfor %}
+    <hr>
+</body>
+
+</html>

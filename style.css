@@ -1,0 +1,20 @@
+ /* Row Coloring */
+ #highlight tr.range-elevated td {
+    background-color: #329606 !important;                  
+}
+
+#highlight tr.range-severe td {
+    background-color: #F1FF70 !important;               
+}
+
+#highlight tr.range-higher td {
+    background-color: #D6344D !important;               
+}
+
+#highlight td.range-severe, td.range-elevated, td.range-higher{
+    font-weight: 800;
+}
+
+table {
+    width: 100%
+}
